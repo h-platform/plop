@@ -1,0 +1,32 @@
+{
+  "name": "@h-platform/cqm",
+  "version": "0.0.1",
+  "description": "This packages generatss commands and queries for the nest backend",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "keywords": [
+    "plop",
+    "plop-pack",
+    "h-platform generators"
+  ],
+  "bugs": {
+    "url": "https://github.com/h-platform/plop/issues"
+  },
+  "homepage": "https://github.com/h-platform/plop#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/h-platform/plop.git"
+  },
+  "author": "Yasir",
+  "license": "MIT",
+  "dependencies": {
+  },
+  "devDependencies": {
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
+}
