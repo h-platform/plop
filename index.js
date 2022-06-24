@@ -1,37 +1,5 @@
 module.exports = function (plop) {
-    // controller generator
-    plop.setGenerator('worker', {
-        description: 'generate a camunda worker task handler',
-        prompts: [{
-            type: 'input',
-            name: 'module',
-            message: 'module name please'
-        }, {
-            type: 'input',
-            name: 'topic',
-            message: 'topic name please'
-        }],
-        actions: [{
-            type: 'add',
-            path: 'src/{{module}}/workers/{{topic}}.ts',
-            templateFile: './templates/workers/worker.camunda.hbs'
-        }, {
-            type: 'add',
-            path: 'src/{{module}}/workers/_index.ts',
-            skipIfExists: true,
-            templateFile: './templates/workers/_index.hbs'
-        }, {
-            type: 'append',
-            path: 'src/{{module}}/workers/_index.ts',
-            pattern: '*** import section ***',
-            template: 'import { {{ properCase topic}}Worker } from "./{{topic}}";',
-        }, {
-            type: 'append',
-            path: 'src/{{module}}/workers/_index.ts',
-            pattern: '*** handlers section ***',
-            template: '\t{{ properCase topic}}Worker,',
-        }]
-    });
+    // generators
     plop.setGenerator('command', {
         description: 'generate a command with http post handler',
         prompts: [{

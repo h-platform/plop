@@ -1,6 +1,6 @@
 {
   "name": "@h-platform/plop",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "This packages generatss commands and queries for the nest backend",
   "main": "index.js",
   "keywords": [
