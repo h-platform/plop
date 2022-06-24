@@ -14,12 +14,12 @@ module.exports = function (plop) {
         actions: [{
             type: 'add',
             path: 'src/{{module}}/workers/{{topic}}.ts',
-            templateFile: './workers/worker.camunda.hbs'
+            templateFile: './templates/workers/worker.camunda.hbs'
         }, {
             type: 'add',
             path: 'src/{{module}}/workers/_index.ts',
             skipIfExists: true,
-            templateFile: './workers/_index.hbs'
+            templateFile: './templates/workers/_index.hbs'
         }, {
             type: 'append',
             path: 'src/{{module}}/workers/_index.ts',
@@ -46,12 +46,12 @@ module.exports = function (plop) {
         actions: [{
             type: 'add',
             path: 'src/{{module}}/commands/{{topic}}.ts',
-            templateFile: './commands/command.http.hbs'
+            templateFile: './templates/commands/command.http.hbs'
         }, {
             type: 'add',
             path: 'src/{{module}}/commands/_index.ts',
             skipIfExists: true,
-            templateFile: './commands/_index.hbs'
+            templateFile: './templates/commands/_index.hbs'
         }, {
             type: 'append',
             path: 'src/{{module}}/commands/_index.ts',
@@ -78,12 +78,12 @@ module.exports = function (plop) {
         actions: [{
             type: 'add',
             path: 'src/{{module}}/commands/{{entity}}.save.ts',
-            templateFile: './commands/save.command.http.hbs'
+            templateFile: './templates/commands/save.command.http.hbs'
         }, {
             type: 'add',
             path: 'src/{{module}}/commands/_index.ts',
             skipIfExists: true,
-            templateFile: './commands/_index.hbs'
+            templateFile: './templates/commands/_index.hbs'
         }, {
             type: 'append',
             path: 'src/{{module}}/commands/_index.ts',
@@ -110,12 +110,12 @@ module.exports = function (plop) {
         actions: [{
             type: 'add',
             path: 'src/{{module}}/queries/{{topic}}.ts',
-            templateFile: './queries/query.http.hbs'
+            templateFile: './templates/queries/query.http.hbs'
         }, {
             type: 'add',
             path: 'src/{{module}}/queries/_index.ts',
             skipIfExists: true,
-            templateFile: './queries/_index.hbs'
+            templateFile: './templates/queries/_index.hbs'
         }, {
             type: 'append',
             path: 'src/{{module}}/queries/_index.ts',
@@ -147,12 +147,12 @@ module.exports = function (plop) {
         actions: [{
             type: 'add',
             path: 'src/{{module}}/queries/{{entity}}.{{topic}}.ts',
-            templateFile: './queries/findAll.query.http.hbs'
+            templateFile: './templates/queries/findAll.query.http.hbs'
         }, {
             type: 'add',
             path: 'src/{{module}}/queries/_index.ts',
             skipIfExists: true,
-            templateFile: './queries/_index.hbs'
+            templateFile: './templates/queries/_index.hbs'
         }, {
             type: 'append',
             path: 'src/{{module}}/queries/_index.ts',
@@ -184,12 +184,12 @@ module.exports = function (plop) {
         actions: [{
             type: 'add',
             path: 'src/{{module}}/queries/{{entity}}.{{topic}}.ts',
-            templateFile: './queries/findById.query.http.hbs'
+            templateFile: './templates/queries/findById.query.http.hbs'
         }, {
             type: 'add',
             path: 'src/{{module}}/queries/_index.ts',
             skipIfExists: true,
-            templateFile: './queries/_index.hbs'
+            templateFile: './templates/queries/_index.hbs'
         }, {
             type: 'append',
             path: 'src/{{module}}/queries/_index.ts',
