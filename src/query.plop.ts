@@ -14,12 +14,12 @@ export default function (plop: NodePlopAPI) {
         actions: [{
             type: 'add',
             path: 'src/{{module}}/queries/{{topic}}.ts',
-            templateFile: './templates/queries/query.http.hbs'
+            templateFile: '../templates/queries/query.http.hbs'
         }, {
             type: 'add',
             path: 'src/{{module}}/queries/_index.ts',
             skipIfExists: true,
-            templateFile: './templates/queries/_index.hbs'
+            templateFile: '../templates/queries/_index.hbs'
         }, {
             type: 'append',
             path: 'src/{{module}}/queries/_index.ts',
@@ -52,12 +52,12 @@ export default function (plop: NodePlopAPI) {
         actions: [{
             type: 'add',
             path: 'src/{{module}}/queries/{{entity}}.{{topic}}.ts',
-            templateFile: './templates/queries/findAll.query.http.hbs'
+            templateFile: '../templates/queries/findAll.query.http.hbs'
         }, {
             type: 'add',
             path: 'src/{{module}}/queries/_index.ts',
             skipIfExists: true,
-            templateFile: './templates/queries/_index.hbs'
+            templateFile: '../templates/queries/_index.hbs'
         }, {
             type: 'append',
             path: 'src/{{module}}/queries/_index.ts',
@@ -90,12 +90,12 @@ export default function (plop: NodePlopAPI) {
         actions: [{
             type: 'add',
             path: 'src/{{module}}/queries/{{entity}}.{{topic}}.ts',
-            templateFile: './templates/queries/findById.query.http.hbs'
+            templateFile: '../templates/queries/findById.query.http.hbs'
         }, {
             type: 'add',
             path: 'src/{{module}}/queries/_index.ts',
             skipIfExists: true,
-            templateFile: './templates/queries/_index.hbs'
+            templateFile: '../templates/queries/_index.hbs'
         }, {
             type: 'append',
             path: 'src/{{module}}/queries/_index.ts',

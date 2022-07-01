@@ -14,12 +14,12 @@ export default function (plop: NodePlopAPI) {
         actions: [{
             type: 'add',
             path: 'src/{{module}}/commands/{{topic}}.ts',
-            templateFile: './templates/commands/command.http.hbs'
+            templateFile: '../templates/commands/command.http.hbs'
         }, {
             type: 'add',
             path: 'src/{{module}}/commands/_index.ts',
             skipIfExists: true,
-            templateFile: './templates/commands/_index.hbs'
+            templateFile: '../templates/commands/_index.hbs'
         }, {
             type: 'append',
             path: 'src/{{module}}/commands/_index.ts',
