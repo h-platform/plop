@@ -1,8 +1,8 @@
 {
   "name": "@h-platform/plop",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "This packages generatss commands and queries for the nest backend",
-  "main": "index.js",
+  "main": "dist/index.js",
   "keywords": [
     "plop",
     "plop-pack",
@@ -31,6 +31,10 @@
     "registry": "https://registry.npmjs.org/"
   },
   "devDependencies": {
-    "@types/lodash": "^4.14.182"
+    "@types/lodash": "^4.14.182",
+    "@types/jest": "^28.1.3",
+    "jest": "^28.1.1",
+    "ts-jest": "^28.0.5",
+    "typescript": "^4.3.4"
   }
 }
