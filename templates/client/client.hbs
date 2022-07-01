@@ -1,0 +1,23 @@
+
+import { CQClient, HModuleConfig } from "@h-platform/cqm";
+${imports.join('\n')}
+
+interface ModuleClient {
+${list.join('\n')}
+}
+
+export async function command<
+        TModule extends keyof ModuleClient,
+        TCommand extends keyof ModuleClient[TModule]['commands'],
+        TPayload extends ModuleClient[TModule]['commands'][TCommand],
+    >(cqclient: CQClient, mn: TModule, cmd: TCommand, payload: TPayload) {
+    return cqclient.command(mn, cmd, payload);
+};
+
+export async function query<
+        TModule extends keyof ModuleClient,
+        TQuery extends keyof ModuleClient[TModule]['queries'],
+        TPayload extends ModuleClient[TModule]['queries'][TQuery],
+    >(cqclient: CQClient, mn: TModule, cmd: TQuery, payload: TPayload) {
+    return cqclient.query(mn, cmd, payload);
+};

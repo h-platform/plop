@@ -1,0 +1,19 @@
+import { HModuleConfig } from "@h-platform/cqm";
+${commandsImports.join('\n')}
+${queriesImports.join('\n')}
+
+interface HModuleConfigs {
+    moduleName: string;
+    commands: Record<string, any>;
+    queries: Record<string, any>;
+}
+
+export class ${pascalCase(moduleName)}Client implements HModuleConfigs {
+    moduleName: '${moduleName}';
+    commands: {
+${commandsList.join('\n')}
+    };
+    queries: {
+${queriesList.join('\n')}
+    };
+}

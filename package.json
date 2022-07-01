@@ -1,6 +1,6 @@
 {
   "name": "@h-platform/plop",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "This packages generatss commands and queries for the nest backend",
   "main": "index.js",
   "keywords": [
@@ -19,11 +19,18 @@
   "author": "Yasir Hantoush",
   "license": "MIT",
   "dependencies": {
-  },
-  "devDependencies": {
+    "glob": "^8.0.3",
+    "lodash": "^4.17.21",
+    "mkdirp": "^1.0.4",
+    "plop": "^3.1.1",
+    "rimraf": "^3.0.2",
+    "xregexp": "^5.1.1"
   },
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.182"
   }
 }
