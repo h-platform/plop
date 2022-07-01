@@ -84,7 +84,7 @@ async function processQueryFile(filePath: string) {
 function prepareDtoTemplate(code: string) {
     return `import { ApiBearerAuth, ApiProperty, ApiTags } from '@nestjs/swagger';
 import { Type } from 'class-transformer';
-import {IsOptional, IsInt, IsDefined, IsString, Matches, IsNotEmpty } from 'class-validator';
+import { IsOptional, IsInt, IsDefined, IsString, Matches, IsNotEmpty } from 'class-validator';
 
 ${code}`
 }
@@ -97,7 +97,7 @@ function prepareModuleClientTemplate(moduleName: string, records: CQRecord[]) {
     const commandsList = commandsDtos.map(d => `        '${d.eventName}': ${d.dtoClassName},`);
     const queriesList = queriesDtos.map(d => `        '${d.eventName}': ${d.dtoClassName},`);
 
-    return `import { HModuleConfig } from "@h-platform/cqm";
+    return `import { HModuleConfigs } from "@h-platform/cqm";
 ${commandsImports.join('\n')}
 ${queriesImports.join('\n')}
 
@@ -117,7 +117,7 @@ function prepareClientTemplate(moduleNames: string[]) {
     const imports = moduleNames.map(m => `import { ${pascalCase(m)}Client } from "./${m}/index";`);
     const list = moduleNames.map(m => `    '${m}': ${pascalCase(m)}Client,`);
     return `
-import { CQClient, HModuleConfig } from "@h-platform/cqm";
+import { CQClient, HModuleConfigs } from "@h-platform/cqm";
 ${imports.join('\n')}
 
 interface ModuleClient {
