@@ -38,17 +38,14 @@ async function processCommandFile(filePath: string) {
     try {
         const commandDTORegex = new RegExp(/.*CommandDTO {[\s\S]*}/);
         const code = await readFile(filePath);
-        const res1 = commandDTORegex.exec(code.toLocaleString());
-        if (Array.isArray(res1)) {
-            const [before, left, match, right] = XRegExp.matchRecursive(res1, '{', '}', 'g', {
-                valueNames: ['before', 'left', 'match', 'right'],
-                unbalanced: 'skip',
-            });
-            const dtoClass = [before.value, left.value, match.value, right.value].join('');
-            return dtoClass;
-        } else {
-            throw new Error('CommandDTO not found in file')
-        }
+        const res = commandDTORegex.exec(code.toLocaleString());
+        assert(Array.isArray(res))
+        const [before, left, match, right] = XRegExp.matchRecursive(res[0], '{', '}', 'g', {
+            valueNames: ['before', 'left', 'match', 'right'],
+            unbalanced: 'skip',
+        });
+        const dtoClass = [before.value, left.value, match.value, right.value].join('');
+        return dtoClass;
     } catch (err) {
         console.log('// Error occured during Command DTO Extraction')
         console.log('// Error file: ' + filePath)
@@ -62,17 +59,14 @@ async function processQueryFile(filePath: string) {
     try {
         const queryDTORegex = new RegExp(/.*QueryDTO {[\s\S]*}/);
         const code = await readFile(filePath);
-        const res1 = queryDTORegex.exec(code.toLocaleString());
-        if (Array.isArray(res1)) {
-            const [before, left, match, right] = XRegExp.matchRecursive(res1[0], '{', '}', 'g', {
-                valueNames: ['before', 'left', 'match', 'right'],
-                unbalanced: 'skip',
-            });
-            const dtoClass = [before.value, left.value, match.value, right.value].join('');
-            return dtoClass;
-        } else {
-            throw new Error('CommandDTO not found in file')
-        }
+        const res = queryDTORegex.exec(code.toLocaleString());
+        assert(Array.isArray(res))
+        const [before, left, match, right] = XRegExp.matchRecursive(res[0], '{', '}', 'g', {
+            valueNames: ['before', 'left', 'match', 'right'],
+            unbalanced: 'skip',
+        });
+        const dtoClass = [before.value, left.value, match.value, right.value].join('');
+        return dtoClass;
     } catch (err) {
         console.log('// Error occured during Query DTO Extraction')
         console.log('// Error file: ' + filePath)
@@ -117,7 +111,7 @@ function prepareClientTemplate(moduleNames: string[]) {
     const imports = moduleNames.map(m => `import { ${pascalCase(m)}Client } from "./${m}/index";`);
     const list = moduleNames.map(m => `    '${m}': ${pascalCase(m)}Client,`);
     return `
-import { CQClient, HModuleConfigs } from "@h-platform/cqm";
+import { CQClient } from "@h-platform/cqm";
 ${imports.join('\n')}
 
 interface ModuleClient {
@@ -129,15 +123,15 @@ export async function command<
         TCommand extends keyof ModuleClient[TModule]['commands'],
         TPayload extends ModuleClient[TModule]['commands'][TCommand],
     >(cqclient: CQClient, mn: TModule, cmd: TCommand, payload: TPayload) {
-    return cqclient.command(mn, cmd, payload);
+    return cqclient.command(mn, cmd as string, payload);
 };
 
 export async function query<
         TModule extends keyof ModuleClient,
         TQuery extends keyof ModuleClient[TModule]['queries'],
         TPayload extends ModuleClient[TModule]['queries'][TQuery],
-    >(cqclient: CQClient, mn: TModule, cmd: TQuery, payload: TPayload) {
-    return cqclient.query(mn, cmd, payload);
+    >(cqclient: CQClient, mn: TModule, qyr: TQuery, payload: TPayload) {
+    return cqclient.query(mn, qyr as string, payload);
 };
 `
 }
