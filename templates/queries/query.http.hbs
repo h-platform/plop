@@ -5,7 +5,8 @@ import { IsDefined, IsOptional } from 'class-validator';
 import { InjectEntityManager } from '@nestjs/typeorm';
 import { JWTGuard } from 'src/authentication/guards/jwt.guard';
 import { giveMeClassLogger } from 'src/common/winston.logger';
-import { CommandResponse, CommandError, getTopicName } from '@h-platform/cqm';
+import { CommandResponse } from '@h-platform/cqm';
+import { CommandError, getTopicName } from '@h-platform/core';
 import { EntityManager } from 'typeorm';
 import { MODULE_NAME } from '../constants';
 
